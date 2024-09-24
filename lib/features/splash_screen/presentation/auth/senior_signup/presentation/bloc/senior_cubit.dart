@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:api_with_bloc/core/constants/string_const.dart';
+import 'package:api_with_bloc/config/env/env.dart';
 import 'package:api_with_bloc/features/splash_screen/presentation/auth/senior_signup/domain/model/senior_model.dart';
 import 'package:api_with_bloc/features/splash_screen/presentation/auth/senior_signup/presentation/bloc/senior_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,11 +12,11 @@ class SeniorCubit extends Cubit<SeniorState> {
   Future<void> attemptToRegisterSenior(Map<String, dynamic>? bodyData) async {
     try {
       emit(LoadingState());
-      // log('Base URL: ${Env.baseUrl}');
-      // var uri = Uri.parse('${Env.baseUrl}/auth/register');
-      // log('Full URI: $uri');
+      log('Base URL: ${Env.baseUrl}');
+      var uri = Uri.parse('${Env.baseUrl}/auth/register');
+      log('Full URI: $uri');
       var response = await http.post(
-        Uri.parse(StringConst.BASE_URL),
+        uri,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(bodyData),
       );
