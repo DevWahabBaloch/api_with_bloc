@@ -102,8 +102,9 @@ class _CaregiverPageState extends State<SeniorPage> with Validator {
                         ),
                       ),
                       validator: (value) {
-                        if (!value!.isValidEmail) {
-                          return 'Invalid email';
+                        String? emailValidation = value?.emailValidation;
+                        if (emailValidation != null) {
+                          return emailValidation;
                         }
                         return null;
                       },
