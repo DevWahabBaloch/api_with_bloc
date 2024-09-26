@@ -32,7 +32,7 @@ class EmailVerifyCubit extends Cubit<EmailVerifyState> {
         uri,
         headers: {
           'Content-Type': 'application/json',
-          HttpHeaders.authorizationHeader: 'Bearer $accessToken'
+          HttpHeaders.authorizationHeader: '$accessToken',
         },
         body: jsonEncode(bodyData),
       );

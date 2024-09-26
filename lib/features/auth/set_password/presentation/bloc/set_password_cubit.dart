@@ -32,7 +32,7 @@ class SetPasswordCubit extends Cubit<SetPasswordState> {
         uri,
         headers: {
           'Content-Type': 'application/json',
-          HttpHeaders.authorizationHeader: 'Bearer $accessToken'
+          HttpHeaders.authorizationHeader: '$accessToken'
         },
         body: jsonEncode(bodyData),
       );

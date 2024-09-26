@@ -23,7 +23,7 @@ class SeniorCubit extends Cubit<SeniorState> {
         uri,
         headers: {
           'Content-Type': 'application/json',
-          HttpHeaders.authorizationHeader: 'Bearer-Token'
+          HttpHeaders.authorizationHeader: 'BearerToken'
         },
         body: jsonEncode(bodyData),
       );
