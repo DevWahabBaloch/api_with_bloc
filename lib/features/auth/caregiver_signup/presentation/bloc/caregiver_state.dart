@@ -1,4 +1,4 @@
-import 'package:api_with_bloc/features/splash_screen/presentation/auth/caregiver_signup/domain/model/caregiver_model.dart';
+import 'package:api_with_bloc/features/auth/caregiver_signup/domain/model/caregiver_model.dart';
 
 abstract class CaregiverState {}
 

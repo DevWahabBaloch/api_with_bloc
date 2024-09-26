@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:api_with_bloc/config/env/env.dart';
-import 'package:api_with_bloc/features/splash_screen/presentation/auth/caregiver_signup/domain/model/caregiver_model.dart';
-import 'package:api_with_bloc/features/splash_screen/presentation/auth/caregiver_signup/presentation/bloc/caregiver_state.dart';
+import 'package:api_with_bloc/features/auth/caregiver_signup/domain/model/caregiver_model.dart';
+import 'package:api_with_bloc/features/auth/caregiver_signup/presentation/bloc/caregiver_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 
