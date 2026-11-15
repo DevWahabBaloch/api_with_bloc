@@ -1,16 +1,49 @@
-# api_with_bloc
+# API with BLoC: Multi-Role Sign-Up Flow
 
-A new Flutter project.
+Multi-step REST authentication flow in Flutter: role-based sign-up, email OTP verification and password setup with Cubit and auto_route.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+A complete sign-up journey backed by a REST API. Separate registration flows for caregivers and seniors lead to email verification with a one-time code and then password setup. Each step has its own Cubit.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Role-based registration (**caregiver** and **senior**)
+- Email verification with a PIN/OTP input (`pinput`)
+- Set-password step that completes the account
+- One Cubit per feature with typed states, provided app-wide via `MultiBlocProvider`
+- Type-safe, generated routing with **auto_route**
+- Environment-based API configuration (`.env`), with the user's profile details persisted in SharedPreferences
+- Reusable validation through a mixin and extension methods
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech stack
+
+Flutter · Dart · flutter_bloc · auto_route · http · shared_preferences · pinput · flutter_dotenv
+
+## Project structure
+
+```text
+lib/
+├── config/env/              # environment loading
+├── config/routes/           # auto_route router (generated *.gr.dart)
+├── core/                    # constants, validators, MultiBlocProvider
+└── features/auth/
+    ├── caregiver_signup/    # domain/model · presentation/bloc · presentation/pages
+    ├── senior_signup/
+    ├── email_verify_page/
+    └── set_password/
+```
+
+## Getting started
+
+```bash
+flutter pub get
+cp .env.example .env   # then fill in the values
+flutter run
+```
+
+The app loads its configuration from a `.env` file at the project root. That file isn't committed; see `.env.example` for the variables it needs.
+
+---
+
+Built by [Abdul Wahab](https://github.com/DevWahabBaloch), Senior Flutter Developer · [Portfolio](https://devwahabbaloch.web.app/)
